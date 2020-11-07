@@ -1,0 +1,137 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      .sign-up {
+        background-color: #0072ff;
+        box-shadow: 1px 1px 4px 0px black;
+        color: white;
+        font-weight: 600;
+        width: 100px;
+        font-size: 18px;
+        height: 24px;
+        text-align: center;
+        border-radius: 10px;
+        display: inline-block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 10px 0;
+        padding: 0px;
+        height: 50px;
+        border-width: 0;
+        font-family: sans-serif;
+        font-weight: normal;
+        font-size: inherit;
+        text-decoration: none;
+        line-height: 50px;
+        cursor: pointer;
+        font-size: 100%;
+      }
+
+      code {
+        background-color: yellow;
+      }
+
+      .menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+
+        background: #000;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mike's Accessibility Demo</h1>
+
+    <h2>
+      Button made with a
+      <code>&lt;div class="sign-up" tabindex="0"&gt;Sign Up&lt;/div&gt;</code>
+    </h2>
+    <div class="sign-up" tabindex="0">Sign Up</div>
+    <p>Pretty bad, user has no idea what group is</p>
+    <hr />
+    <h2>
+      Button made with a
+      <code
+        >&lt;button class="sign-up" tabindex="0"&gt;Sign Up&lt;/button&gt;</code
+      >
+    </h2>
+    <button class="sign-up" tabindex="0">Sign Up</button>
+    <p>Really good! Semantic HTML</p>
+    <hr />
+    <h2>
+      Button made with a
+      <code
+        >&lt;div class="sign-up" tabindex="0" aria-label="button"&gt;Sign
+        Up&lt;/div&gt;</code
+      >
+    </h2>
+    <div class="sign-up" tabindex="0" aria-label="Sign Up">Sign Up</div>
+    <p>Not good enough, still empty group</p>
+    <hr />
+    <h2>
+      Button made with a
+      <code
+        >&lt;div class="sign-up" tabindex="0" role="button"&gt;Sign
+        Up&lt;/div&gt;</code
+      >
+    </h2>
+    <div class="sign-up" tabindex="0" role="button">Sign Up</div>
+    <p>
+      We perfectly faked our div to be a button and has correct implementation!
+      If we wanted to we could add <code>aria-label</code> as well
+    </p>
+    <hr />
+
+    <h1>What about things like this?</h1>
+    <code style="margin-bottom: 1rem">
+      &lt;button class="menuToggle"&gt;<br />
+      &lt;span&gt;&lt;/span&gt; <br />
+      &lt;span&gt;&lt;/span&gt; <br />
+      &lt;span&gt;&lt;/span&gt; <br />
+      &lt;/button&gt;
+    </code>
+    <br />
+    <button class="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <p>User has no idea what button is here</p>
+
+    <hr />
+    <h1>With some help from aria!</h1>
+    <code style="margin-bottom: 1rem">
+      &lt;button class="menuToggle" aria-label="Main Menu"&gt;<br />
+      &lt;span&gt;&lt;/span&gt; <br />
+      &lt;span&gt;&lt;/span&gt; <br />
+      &lt;span&gt;&lt;/span&gt; <br />
+      &lt;/button&gt;
+    </code>
+    <br />
+    <button class="menuToggle" aria-label="Main Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <p>User can hear it is a button for the main menu!</p>
+    <hr />
+
+    <h1>It doesn't stop there!</h1>
+    <code>
+      aria-labelledby <br />
+      aria-checked <br />aria-placeholder
+    </code>
+  </body>
+</html>
